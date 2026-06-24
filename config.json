@@ -40,7 +40,21 @@
         "command($sh)",
         "command(Test-Path)",
         "command(adb)",
-        "command(\u0026)"
+        "command(\u0026)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(cmd)",
+        "command(cmd)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)"
       ]
     }
   }

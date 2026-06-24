@@ -63,6 +63,13 @@ This section compiles high-level heuristics and development lessons from all pro
   - Inside App: Tap user avatar -> "Debug API" to test Token, Identity Server, and POD Server connections.
   - Console Logging: Run `adb logcat -s flutter | findstr "HTTP"` to capture active API requests.
 
+### Oracle MAS (c:\Users\deomo\oracle_mas)
+- **Architecture**: Multi-agent scalping platform (MT5) with XGBoost, GRU (Keras), and Sentinel (IsolationForest) agents.
+- **Key Learnings**:
+  - ❌ *StandardScaler Bug*: Passing unscaled features during prediction/validation evaluation when the training function used a StandardScaler. If using Tree-based models (XGBoost), StandardScaler is unnecessary and can be removed completely to avoid this class mismatch.
+  - ❌ *XGBoost scale_pos_weight Bug*: Setting `scale_pos_weight = raw_spw` when the positive class (TP hit / label 1) is the majority class (e.g. `raw_spw < 0.5`) scales down the weight of positive predictions. Combined with regularization, this forces the model to underfit and predict `0` (loss) 100% of the time, collapsing accuracy to the minority class rate (e.g. 16.5% on US30m).
+  -   *Solution*: Only apply `scale_pos_weight` when positive is the minority class (`raw_spw > 2.0`). Otherwise, keep `scale_pos_weight = 1.0`. Retraining with this fix restored US30m Reversal accuracy from **16.5%** to **82.3%** and Momentum from **65.5%** to **80.8%**.
+
 ---
 
 ## 👥 5. Standard AI Agent Office Roster
