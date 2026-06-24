@@ -35,7 +35,12 @@
         "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command(flutter)",
-        "command(flutter)"
+        "command(flutter)",
+        "command(Get-Process)",
+        "command($sh)",
+        "command(Test-Path)",
+        "command(adb)",
+        "command(\u0026)"
       ]
     }
   }
