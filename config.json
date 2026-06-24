@@ -1,0 +1,34 @@
+{
+  "userSettings": {
+    "globalPermissionGrants": {
+      "allow": [
+        "command(C:\\Users\\deomo\\miniconda3\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\python.exe)",
+        "command(echo)",
+        "command($env:GEMINI_API_KEY)",
+        "command(Get-ChildItem)",
+        "command($env:GEMINI_API_KEY)",
+        "command(powershell)",
+        "command(where)",
+        "command($env:GEMINI_API_KEY)",
+        "command(npm test)",
+        "command($env:GEMINI_API_KEY)",
+        "command($env:GEMINI_API_KEY)",
+        "command($env:GEMINI_API_KEY)",
+        "command($env:GEMINI_API_KEY)",
+        "command($env:GEMINI_API_KEY)",
+        "command($env:GEMINI_API_KEY)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)"
+      ]
+    }
+  }
+}
