@@ -52,9 +52,14 @@ This log is updated dynamically at the end of successful tasks to summarize lear
 
 This section compiles high-level heuristics and development lessons from all projects. Its goal is to prevent repeating failed attempts.
 
-### [Project Name / ID]
-- **Architecture**: (e.g. Multi-Agent, Streamlit, etc.)
+### Thailand Post - thp_branch_app (TND / CA - Copy)
+- **Architecture**: Flutter Android Application (TND Client) & Python Test Script for Thailand Post API.
 - **Key Learnings**:
-  - ❌ *Method 1 (Failed)*: [What was tried] -> Failed because [Reason].
-  -   *Method 2 (Succeeded)*: [What worked] -> Succeeded because [Reason].
+  - ❌ *Method 1 (Failed)*: Deploying Flutter APK releases v2.4.0+11 through +14 after direct code edits without a clean build environment. The parcel status updates sent only the delivery account code (e.g., PRT42170EVD0001) but failed to post the user signature details (e.g., `teerapong.sy`) and the POD images to the central tracking system (`https://qms.thailandpost.com/Web/Tracking/singleTracking.aspx`), leaving tracking histories incomplete.
+  -   *Method 2 (Succeeded)*: Built the APK as `v2.4.0+15_REAL_CLEAN_BUILD`. Running a clean compile sequence (`flutter clean` followed by a fresh `flutter build apk --release --no-tree-shake-icons`) resolved caching glitches in Android/Flutter build states. This cleanly compiled the Dio client interceptors and correctly synced both the user details and signature photos to the tracking database.
+- **Debugging Toolkit**:
+  - Windows test script: Run `python test_thp_api.py` to check OAuth2 login (`identity-dmz-tnd.thailandpost.com`) and prepare search endpoints directly.
+  - Inside App: Tap user avatar -> "Debug API" to test Token, Identity Server, and POD Server connections.
+  - Console Logging: Run `adb logcat -s flutter | findstr "HTTP"` to capture active API requests.
+
 
