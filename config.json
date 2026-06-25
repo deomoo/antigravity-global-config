@@ -41,7 +41,8 @@
         "command(Resolve-DnsName)",
         "command(Test-NetConnection)",
         "command($procId)",
-        "command($env:PYTHONIOENCODING=\"utf-8\";)"
+        "command($env:PYTHONIOENCODING=\"utf-8\";)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)"
       ]
     }
   }
