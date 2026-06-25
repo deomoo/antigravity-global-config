@@ -37,7 +37,8 @@
         "command(route)",
         "command([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent().IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))",
         "command($currentIdentity)",
-        "command(nslookup)"
+        "command(nslookup)",
+        "command(Resolve-DnsName)"
       ]
     }
   }
