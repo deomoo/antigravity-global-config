@@ -40,7 +40,8 @@
         "command(nslookup)",
         "command(Resolve-DnsName)",
         "command(Test-NetConnection)",
-        "command($procId)"
+        "command($procId)",
+        "command($env:PYTHONIOENCODING=\"utf-8\";)"
       ]
     }
   }
