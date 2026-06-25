@@ -1,0 +1,16 @@
+{
+  "sync-brain-hook": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python C:\\Users\\deomo\\.gemini\\config\\scripts\\sync_memory.py pull_lazy"
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python C:\\Users\\deomo\\.gemini\\config\\scripts\\sync_memory.py \"Auto-sync on session stop\""
+      }
+    ]
+  }
+}
