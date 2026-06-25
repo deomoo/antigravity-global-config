@@ -38,7 +38,8 @@
         "command([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent().IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))",
         "command($currentIdentity)",
         "command(nslookup)",
-        "command(Resolve-DnsName)"
+        "command(Resolve-DnsName)",
+        "command(Test-NetConnection)"
       ]
     }
   }
