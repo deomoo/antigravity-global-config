@@ -39,7 +39,8 @@
         "command($currentIdentity)",
         "command(nslookup)",
         "command(Resolve-DnsName)",
-        "command(Test-NetConnection)"
+        "command(Test-NetConnection)",
+        "command($procId)"
       ]
     }
   }
