@@ -193,6 +193,15 @@ This section defines the active AI agent roster for subagent invocation. They ca
   }
   ```
 
+## 📬 6. Cross-Device Task Collaboration Protocol
+Both AIs (on the Work Machine `T42170X0W108` and the Home/Server Machine) must follow this protocol to coordinate work via the shared task file `C:\Users\deomo\.gemini\config\cross_machine_tasks.json`:
 
-
-
+1. **Pre-Invocation Review**:
+   - At the start of every session, read `cross_machine_tasks.json`.
+   - Check for `"PENDING"` tasks assigned to the current hostname.
+   - If a matching task is found, present it to the user, mark it as `"IN_PROGRESS"`, execute the required steps, and update status to `"COMPLETED"` or `"FAILED"`. Write the outcome summary in the `result` field.
+2. **Task Creation**:
+   - If the user requests a workflow that is better suited for or must run on the other machine (e.g., retraining models on a GPU-heavy home server, or verifying MT5 live states at the office), create a new task entry in the JSON file.
+   - Set `creator_machine` to the current hostname, `assigned_machine` to the destination host, and `status` to `"PENDING"`.
+3. **Automatic Sync**:
+   - After updating the JSON file, the Stop hook will automatically push changes to GitHub. The destination machine will pull the updated queue at the start of its next session.
