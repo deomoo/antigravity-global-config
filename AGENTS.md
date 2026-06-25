@@ -31,9 +31,16 @@ This section tracks context, historical states, and preferences across sessions.
 - **Primary Goal**: Building and optimizing the **Oracle Trading Fund (Autonomous MAS)** and the **AI Agent Office (Phoenix Server)**.
 - **Tech Stack Preference**: Gemini (Primary model), Node.js/JavaScript, Python (via `miniconda3/envs/oracle_gpu`), MetaTrader 5 (MT5).
 
-### System State & Active Projects:
-- **Oracle MAS**: Located at `c:\Users\deomo\oracle_mas`. A multi-agent scalping platform for MT5 trading XAUUSDm and BTCUSDm.
-- **Agent Office UI**: Located at `d:\AI_Saiyan_System\agent_office_ui`. Runs **Phoenix Server 2.0 (The Oracle's Chamber)**.
+### System State, Hostname Mapping & Active Projects:
+To distinguish which projects are located and running on which machine, check the current hostname or environment variables:
+
+- 💻 **Machine: T42170X0W108** (Work / Office Machine)
+  - **PODnew (Thailand Post Client)**: Located at `D:\CA - Copy` (TND Branch App).
+  - **Oracle MAS**: Located at `c:\Users\deomo\oracle_mas` (Scalping bot + MT5 Exness Demo account).
+  - **Agent Office UI**: Located at `d:\AI_Saiyan_System\agent_office_ui`.
+- 💻 **Machine: [Other / Home Hostname]** (Home / Primary Server Machine)
+  - *Setup*: Can pull the same config repository but might have different path bindings. If the hostname does not match T42170X0W108, verify local folder existence before writing files.
+
 - **API Key Quota Log**: 
   - *Status as of 2026-06-24*: Personal `GEMINI_API_KEY` and `ANTHROPIC_API_KEY` have exceeded their quotas/billing limits. Antigravity system token limits are unaffected.
 
