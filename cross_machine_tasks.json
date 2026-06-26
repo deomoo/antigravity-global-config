@@ -38,23 +38,24 @@
       }
     },
     {
-      "id": "task_xauusd_retrain_001",
-      "title": "Retrain XAUUSDm Model with 100,000 bars",
-      "creator_machine": "T42170X0W107",
+      "id": "task_fom_sync_20260625",
+      "title": "Check FOM Agent Execution and Sync Daily Account Report for 2026-06-25",
+      "creator_machine": "T42170X0W108",
       "assigned_machine": "HOME_SERVER",
-      "created_at": "2026-06-26T00:24:00Z",
-      "updated_at": "2026-06-26T00:24:00Z",
+      "created_at": "2026-06-26T00:28:34.486380Z",
+      "updated_at": "2026-06-26T00:28:34.486380Z",
       "status": "PENDING",
-      "action": "RETRAIN_MODEL",
+      "action": "CHECK_FOM_AND_SYNC",
       "payload": {
-        "symbol": "XAUUSDm",
-        "bars": 100000,
-        "epochs": 150,
-        "model_type": "XGBoost"
+        "date": "2026-06-25",
+        "source_path": "D:\\AI_Office_System\\1_Raw_Reports",
+        "dest_path": "G:\\My Drive\\AI_Office_HQ\\2_งานสำนักงาน\\รายงานประจำวัน\\2569\\06",
+        "file_template_local": "บัญชีสิ้นวัน 25 มิ.ย. 2569.pdf",
+        "file_template_remote": "บัญชีประจำวันที่ 25 มิ.ย. 2569.pdf"
       },
       "result": {
         "summary": "",
-        "metrics": {}
+        "details": {}
       }
     }
   ]
