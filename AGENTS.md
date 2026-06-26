@@ -52,6 +52,7 @@ This log is updated dynamically at the end of successful tasks to summarize lear
 
 - **[2026-06-23] Hermes Agent Analysis**: Analysed Hermes Agent Desktop architecture. Confirmed it shares state with the CLI and uses OAuth (`hermes setup --portal`) to configure models and gateway tools.
 - **[2026-06-24] Phoenix Server Analysis**: Checked Phoenix Server 2.0 database schema and execution workflow. Identified that CEO routing fails with a 403 error when `GEMINI_API_KEY` is restricted by Google billing.
+- **[2026-06-26] FOM Recovery & Date Bug Fix**: Recovered yesterday's (June 25) FOM report workflow. Resolved a critical date parsing bug in `secretary_agent.py` where day digits conflicted with the Buddhist year `2569` by implementing strict regex bounds `(?<!\d)0?{d}(?!\d)`.
 
 ---
 
@@ -76,6 +77,14 @@ This section compiles high-level heuristics and development lessons from all pro
   - ❌ *StandardScaler Bug*: Passing unscaled features during prediction/validation evaluation when the training function used a StandardScaler. If using Tree-based models (XGBoost), StandardScaler is unnecessary and can be removed completely to avoid this class mismatch.
   - ❌ *XGBoost scale_pos_weight Bug*: Setting `scale_pos_weight = raw_spw` when the positive class (TP hit / label 1) is the majority class (e.g. `raw_spw < 0.5`) scales down the weight of positive predictions. Combined with regularization, this forces the model to underfit and predict `0` (loss) 100% of the time, collapsing accuracy to the minority class rate (e.g. 16.5% on US30m).
   -   *Solution*: Only apply `scale_pos_weight` when positive is the minority class (`raw_spw > 2.0`). Otherwise, keep `scale_pos_weight = 1.0`. Retraining with this fix restored US30m Reversal accuracy from **16.5%** to **82.3%** and Momentum from **65.5%** to **80.8%**.
+
+### AI Office System (d:\AI_Office_System)
+- **Architecture**: Automated office tasks system (FastAPI, Selenium, PyMuPDF, Watchdog, SumatraPDF, Telegram Bot).
+- **Key Learnings**:
+  - ❌ *Date Mismatch Year Conflict*: In `secretary_agent.py`, searching for day digits (e.g. `25` or `2`, `5`, `6`, `9`) using simple substring matching (`in filename`) caused conflicts with the Thai Buddhist year `2569`, resulting in incorrect signing of other days' files.
+  -   *Solution*: Replaced the substring check with strict regex digit boundaries: `(?<!\d)0?{d}(?!\d)` to isolate the date number and prevent year overlap.
+  - ❌ *Batch Script Failure Rollover*: In `run_fom_agents.bat`, if Agent 1 failed to download a report, it exited the batch file, preventing subsequent agents (Agent 2 and 3) from running even if raw reports were downloaded on a later retry or manually.
+  -   *Solution*: Verify local `1_Raw_Reports` before running the pipeline or ensure manual triggers are available.
 
 ---
 
