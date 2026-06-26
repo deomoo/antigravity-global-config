@@ -59,7 +59,11 @@
         "command(venv\\Scripts\\python.exe)",
         "command(venv\\Scripts\\python.exe)",
         "command(venv\\Scripts\\python.exe)",
-        "command(venv\\Scripts\\python.exe)"
+        "command(venv\\Scripts\\python.exe)",
+        "command(Get-Volume)",
+        "command(Get-PhysicalDisk;)",
+        "command(Get-Partition)",
+        "command(wmic)"
       ]
     }
   }
