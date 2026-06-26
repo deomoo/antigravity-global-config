@@ -36,26 +36,6 @@
         "summary": "Completed log analysis. Observed 69.6% win rate with trailing stop bottleneck.",
         "pnl_points": 226.55
       }
-    },
-    {
-      "id": "task_xauusd_retrain_001",
-      "title": "Retrain XAUUSDm Model with 100,000 bars",
-      "creator_machine": "T42170X0W107",
-      "assigned_machine": "HOME_SERVER",
-      "created_at": "2026-06-26T00:24:00Z",
-      "updated_at": "2026-06-26T00:24:00Z",
-      "status": "PENDING",
-      "action": "RETRAIN_MODEL",
-      "payload": {
-        "symbol": "XAUUSDm",
-        "bars": 100000,
-        "epochs": 150,
-        "model_type": "XGBoost"
-      },
-      "result": {
-        "summary": "",
-        "metrics": {}
-      }
     }
   ]
 }
