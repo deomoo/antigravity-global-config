@@ -63,7 +63,21 @@
         "command(Get-Volume)",
         "command(Get-PhysicalDisk;)",
         "command(Get-Partition)",
-        "command(wmic)"
+        "command(wmic)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)"
       ]
     }
   }
