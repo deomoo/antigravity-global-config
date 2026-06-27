@@ -54,7 +54,6 @@ This log is updated dynamically at the end of successful tasks to summarize lear
 - **[2026-06-24] Phoenix Server Analysis**: Checked Phoenix Server 2.0 database schema and execution workflow. Identified that CEO routing fails with a 403 error when `GEMINI_API_KEY` is restricted by Google billing.
 - **[2026-06-26] FOM Recovery & Date Bug Fix**: Recovered yesterday's (June 25) FOM report workflow. Resolved a critical date parsing bug in `secretary_agent.py` where day digits conflicted with the Buddhist year `2569` by implementing strict regex bounds `(?<!\d)0?{d}(?!\d)`.
 - **[2026-06-27] AI Office System Automation Upgrade**: Implemented 5 major automation systems: Brother Printer Status CIM Query (alerting Telegram if offline), SLA Warning System (tagging overdue barcodes in QMS reports and dashboard), Automated Backup (`auto_backup.py`) targeting mounted G: drive, KPI grading dashboard, and AI-Powered Document Writer (generating official Thai Post drafts via Gemini, committing to numbering schema, exporting to formatted `.docx`).
-- **[2026-06-27] Covert CCTV Surveillance Agent v5**: Built a silent background CCTV agent (`cctv_covert_agent.pyw`) for Thailand Post office. Monitors Channel 1 (box stack area) and Channel 4 (door/walkway area) via direct RTSP stream — no SmartPSS window needed. Uses 4-stage local filtering (motion threshold 4000px → human-blob detection ≥3000px² → color analysis → cooldown 120s) with NO Gemini API calls. Key lesson: detecting "brown color present" causes constant false alarms since boxes are always in frame — correct approach is detecting "brown pixel count DROPS ≥20%" (box was removed). Single-instance lock via port 50099 prevents multiple processes from firing duplicate alerts. Auto-restart watchdog thread prevents silent death.
 
 ---
 
@@ -87,12 +86,6 @@ This section compiles high-level heuristics and development lessons from all pro
   -   *Solution*: Replaced the substring check with strict regex digit boundaries: `(?<!\d)0?{d}(?!\d)` to isolate the date number and prevent year overlap.
   - ❌ *Batch Script Failure Rollover*: In `run_fom_agents.bat`, if Agent 1 failed to download a report, it exited the batch file, preventing subsequent agents (Agent 2 and 3) from running even if raw reports were downloaded on a later retry or manually.
   -   *Solution*: Verify local `1_Raw_Reports` before running the pipeline or ensure manual triggers are available.
-  - ❌ *CCTV False Alarm - Brown Color Always Present*: Checking if "brown color exists in motion ROI" causes constant false alarms because cardboard boxes are permanently visible in the zone. Any light flicker or camera noise triggers the check.
-  -   *Solution*: Track baseline brown pixel count during warmup frames. Alert only when brown pixels DROP by ≥20% (meaning a box was physically removed). Also require a human-blob (contour area ≥3000px²) in the ROI before alerting.
-  - ❌ *CCTV Multiple Instance Duplicate Alerts*: Running multiple `.pyw` instances simultaneously causes each instance to alert independently, bypassing cooldown periods and flooding Telegram.
-  -   *Solution*: Add single-instance socket lock `socket.bind(("127.0.0.1", 50099))` at startup. If port is already bound, exit immediately (`sys.exit(0)`). Store cooldown timestamps in a module-level dict shared across watchdog restarts.
-  - ❌ *CCTV ROI Coordinate Mismatch*: Hardcoding ROI coordinates assuming 640×360 when actual RTSP stream is 960×576 causes immediate crashes as polygon coordinates exceed frame boundaries.
-  -   *Solution*: Always read actual frame dimensions from `frame.shape[:2]` after first successful `cap.read()`, then compute ROI using percentage-based coordinates (e.g., `int(fw*0.38)`) so it scales to any resolution automatically.
 
 ---
 
