@@ -215,3 +215,12 @@ Both AIs (on the Work Machine `T42170X0W108` and the Home/Server Machine) must f
    - Set `creator_machine` to the current hostname, `assigned_machine` to the destination host, and `status` to `"PENDING"`.
 3. **Automatic Sync**:
    - After updating the JSON file, the Stop hook will automatically push changes to GitHub. The destination machine will pull the updated queue at the start of its next session.
+
+## 📚 RAG Augmentation & Director Agent
+
+- **Director Agent**: รวบรวมข้อมูลความรู้จาก `knowledge_store` (ChromaDB) และทำการดึงข้อมูลที่เกี่ยวข้องก่อนส่งคำถามไปให้ LLM หลัก เพื่อลดจำนวน token ที่ใช้.
+- **Workflow**:
+  1. **Knowledge Audit** – cron job เรียก `rag_setup.py` ทุก 6 ชั่วโมงเพื่ออัปเดตเวกเตอร์สโตร์และบันทึก snapshot.
+  2. **Retrieval** – เมื่อผู้ใช้ถามคำถาม ระบบจะค้นหา chunk ที่ตรงที่สุดใน `antigravity_knowledge` แล้วส่งสรุปสั้น ๆ (≈30 token) ให้ LLM.
+  3. **Fallback** – หากไม่มีผลลัพธ์ที่เกี่ยวข้อง ระบบจะใช้ LLM แบบเต็มรูปแบบ.
+- **Benefits**: ประหยัด token, เพิ่มความเร็วของการตอบ, ทำให้ระบบมี “สมองระยะยาว” ที่อัปเดตอัตโนมัติ.
