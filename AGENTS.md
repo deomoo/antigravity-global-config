@@ -54,7 +54,6 @@ This log is updated dynamically at the end of successful tasks to summarize lear
 - **[2026-06-24] Phoenix Server Analysis**: Checked Phoenix Server 2.0 database schema and execution workflow. Identified that CEO routing fails with a 403 error when `GEMINI_API_KEY` is restricted by Google billing.
 - **[2026-06-26] FOM Recovery & Date Bug Fix**: Recovered yesterday's (June 25) FOM report workflow. Resolved a critical date parsing bug in `secretary_agent.py` where day digits conflicted with the Buddhist year `2569` by implementing strict regex bounds `(?<!\d)0?{d}(?!\d)`.
 - **[2026-06-27] AI Office System Automation Upgrade**: Implemented 5 major automation systems: Brother Printer Status CIM Query (alerting Telegram if offline), SLA Warning System (tagging overdue barcodes in QMS reports and dashboard), Automated Backup (`auto_backup.py`) targeting mounted G: drive, KPI grading dashboard, and AI-Powered Document Writer (generating official Thai Post drafts via Gemini, committing to numbering schema, exporting to formatted `.docx`).
-- **[2026-06-29] SAP Fiori Time Clocking & Geofence Fix**: Resolved "ไม่อยู่ในพื้นที่" (Not in area) error by updating Na Haeo Post Office GPS coordinates in `auto_team_clock.py` to `(17.480183, 101.070120)` with precision `10` and reinforcing CDP overrides.
 
 ---
 
@@ -83,8 +82,6 @@ This section compiles high-level heuristics and development lessons from all pro
 ### AI Office System (d:\AI_Office_System)
 - **Architecture**: Automated office tasks system (FastAPI, Selenium, PyMuPDF, Watchdog, SumatraPDF, Telegram Bot).
 - **Key Learnings**:
-  - ❌ *SAP Fiori Geofence "ไม่อยู่ในพื้นที่"*: When SAP Fiori shows "ไม่อยู่ในพื้นที่", it completely hides/disables clock-in/out buttons. Cause: Incorrect coordinates in script (`17.4778704, 101.048549` were ~2.5km off). Solution: Set exact office coordinates (`17.480183, 101.070120`), set `accuracy: 10`, and reinforce CDP geolocation overrides via `Page.addScriptToEvaluateOnNewDocument`.
-  - ❌ *SAP Fiori Button Click Ignored*: Fiori SPA components often ignore single standard element clicks. Solution: Fire multi-target clicks (Parent control JS click, Direct JS click, ActionChains) within each retry attempt loop.
   - ❌ *Date Mismatch Year Conflict*: In `secretary_agent.py`, searching for day digits (e.g. `25` or `2`, `5`, `6`, `9`) using simple substring matching (`in filename`) caused conflicts with the Thai Buddhist year `2569`, resulting in incorrect signing of other days' files.
   -   *Solution*: Replaced the substring check with strict regex digit boundaries: `(?<!\d)0?{d}(?!\d)` to isolate the date number and prevent year overlap.
   - ❌ *Batch Script Failure Rollover*: In `run_fom_agents.bat`, if Agent 1 failed to download a report, it exited the batch file, preventing subsequent agents (Agent 2 and 3) from running even if raw reports were downloaded on a later retry or manually.
