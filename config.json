@@ -135,6 +135,8 @@
         "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command($env:PYTHONIOENCODING=\"utf-8\";)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)"
       ]
     }
