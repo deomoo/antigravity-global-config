@@ -140,7 +140,9 @@
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
-        "command(run_fom_agents.bat)"
+        "command(run_fom_agents.bat)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)"
       ]
     }
   }
