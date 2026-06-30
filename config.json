@@ -143,7 +143,10 @@
         "command(run_fom_agents.bat)",
         "command(d:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(d:\\AI_Office_System\\venv\\Scripts\\python.exe)",
-        "command(Get-Process)"
+        "command(Get-Process)",
+        "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python311\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)"
       ]
     }
   }
