@@ -191,6 +191,7 @@
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
+        "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)"
       ]
     }
