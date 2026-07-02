@@ -87,3 +87,12 @@ Both AIs (on the Work Machine `T42170X0W108` and the Home/Server Machine) must f
 
 ## 📚 6. RAG Augmentation & Director Agent
 - **Director Agent**: Queries the local vector store `knowledge_store` to fetch relevant context before passing questions to the LLM to minimize token bloat.
+
+---
+
+## 👥 7. Teamwork & Parallel Orchestration Protocol
+For complex, multi-faceted tasks, the parent agent (Antigravity) acts as the central Orchestrator/Director:
+1. **Parallel Task Delegation**: Break down large objectives into independent sub-tasks and delegate them to specialized subagents (e.g. `codecraft` for code creation, `sentinel` for security/risk review, `synthesizer` for optimization) to run concurrently via `invoke_subagent`.
+2. **Context Isolation & Token Optimization**: Subagents run in isolated workspace branches, preventing the main conversation context from bloating with long logs and file outputs.
+3. **Consolidated Reporting**: The parent agent monitors background subagents and synthesizes their results into a single, clean final walkthrough report for the user.
+
