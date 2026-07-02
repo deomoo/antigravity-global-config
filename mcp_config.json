@@ -4,11 +4,11 @@
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-google-developer-knowledge"
-      ],
-      "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "C:/Users/deomo/.gemini/config/gcp_service_account.json"
-      }
+        "mcp-remote",
+        "https://developerknowledge.googleapis.com/mcp",
+        "--header",
+        "X-Goog-Api-Key: AIzaSyCqlxXJOoquf3HD2vc1ABVSGVc_eFpeSds"
+      ]
     }
   }
 }
