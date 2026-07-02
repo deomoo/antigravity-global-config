@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "google-developer-knowledge": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-google-developer-knowledge"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "C:/Users/deomo/.gemini/config/gcp_service_account.json"
+      }
+    }
+  }
+}
