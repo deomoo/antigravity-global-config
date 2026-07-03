@@ -202,6 +202,8 @@
         "command(Copy-Item)",
         "command(Get-Item)",
         "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
         "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)"
       ]
     }
