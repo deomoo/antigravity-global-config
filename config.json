@@ -198,7 +198,10 @@
         "command(cmd)",
         "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)",
         "command(flutter)",
-        "command(flutter)"
+        "command(flutter)",
+        "command(Copy-Item)",
+        "command(Get-Item)",
+        "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)"
       ]
     }
   }
