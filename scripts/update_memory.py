@@ -20,14 +20,14 @@ def find_project_memory():
     return None
 
 def append_to_learning_log(filepath, date_str, title, content=""):
-    """เพิ่มข้อมูลในหัวข้อ ## 🔄 1. Continuous Learning Log & Active Retention"""
+    """เพิ่มข้อมูลในหัวข้อ ## 🔄 [N]. Continuous Learning Log & Active Retention"""
     content_str = filepath.read_text(encoding="utf-8")
     
     # สร้างข้อความที่จะแทรก
     new_entry = f"- **[{date_str}] {title}**: {content}\n"
     
-    # มองหาหัวข้อ Continuous Learning Log
-    pattern = r"(## 🔄 1\. Continuous Learning Log & Active Retention)"
+    # มองหาหัวข้อ Continuous Learning Log (ยืดหยุ่นรองรับเลขหัวข้อใดๆ)
+    pattern = r"(## 🔄 \d+\. Continuous Learning Log & Active Retention[^\n]*)"
     match = re.search(pattern, content_str)
     
     if match:
@@ -39,7 +39,7 @@ def append_to_learning_log(filepath, date_str, title, content=""):
         lines = updated_content.splitlines()
         learning_section_idx = -1
         for idx, line in enumerate(lines):
-            if "## 🔄 1. Continuous Learning Log" in line:
+            if "Continuous Learning Log" in line and "##" in line:
                 learning_section_idx = idx
                 break
                 
