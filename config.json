@@ -251,8 +251,10 @@
         "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)",
         "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)",
         "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)",
-        "command(Get-WmiObject)",
-        "command(C:\\Users\\deomo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe)"
+        "command(reg)",
+        "command(net)",
+        "command(arp)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)"
       ]
     }
   }
