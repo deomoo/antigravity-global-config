@@ -263,7 +263,8 @@
         "command(d:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(d:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(claude)",
-        "command(claude.cmd)"
+        "command(claude.cmd)",
+        "command(d:\\AI_Office_System\\venv\\Scripts\\python.exe)"
       ]
     }
   }
