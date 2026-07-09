@@ -305,6 +305,8 @@
         "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(Get-PSDrive)",
         "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
+        "command(C:\\Users\\deomo\\miniconda3\\envs\\oracle_gpu\\python.exe)",
         "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)"
       ]
     }
