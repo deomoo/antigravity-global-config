@@ -402,7 +402,8 @@
         "command(Rename-Item)",
         "command(Rename-Item)",
         "command(ls)",
-        "command(Start-Job)"
+        "command(Start-Job)",
+        "command($env:PYTHONIOENCODING=\"utf-8\";)"
       ]
     }
   }
