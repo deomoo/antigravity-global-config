@@ -401,7 +401,8 @@
         "command(C:\\Windows\\System32\\netstat.exe)",
         "command(Rename-Item)",
         "command(Rename-Item)",
-        "command(ls)"
+        "command(ls)",
+        "command(Start-Job)"
       ]
     }
   }
