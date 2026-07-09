@@ -339,7 +339,8 @@
         "command(.\\venv\\Scripts\\python.exe)",
         "command(.\\venv\\Scripts\\python.exe)",
         "command(.\\venv\\Scripts\\python.exe)",
-        "command(.\\venv\\Scripts\\python.exe)"
+        "command(.\\venv\\Scripts\\python.exe)",
+        "command(getmac)"
       ]
     }
   },
