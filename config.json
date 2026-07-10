@@ -405,7 +405,9 @@
         "command(Start-Job)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
-        "command(#)"
+        "command(#)",
+        "command($remote)",
+        "command($cred)"
       ]
     }
   }
