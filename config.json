@@ -412,7 +412,8 @@
         "command($posApp)",
         "command(Write-Host)",
         "command($oldIP)",
-        "command($oldIP)"
+        "command($oldIP)",
+        "command(New-Item)"
       ]
     }
   }
