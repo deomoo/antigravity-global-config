@@ -274,7 +274,8 @@
         "command(C:\\Users\\deomo\\bin\\onboard.exe)",
         "command(C:\\Users\\deomo\\bin\\onboard.exe)",
         "command(C:\\Users\\deomo\\bin\\onboard.exe)",
-        "command(C:\\Users\\deomo\\bin\\onboard.exe)"
+        "command(C:\\Users\\deomo\\bin\\onboard.exe)",
+        "command(echo)"
       ]
     }
   }
