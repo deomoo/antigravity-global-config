@@ -268,7 +268,10 @@
         "command(d:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(Get-Counter)",
         "command(Start-Process)",
-        "read_url(raw.githubusercontent.com)"
+        "read_url(raw.githubusercontent.com)",
+        "read_url(api.github.com)",
+        "command(if)",
+        "command(C:\\Users\\deomo\\bin\\onboard.exe)"
       ]
     }
   }
