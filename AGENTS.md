@@ -48,6 +48,7 @@ To distinguish which projects are located and running on which machine, check th
 
 ## 🔄 3. Continuous Learning Log & Active Retention (Global & General)
 
+- **[2026-07-10] CA-POS Auto-Filler Post-Mortem & Architecture Failures**: Analyzed CefSharp Chrome DevTools port disconnects when the app closes, ghost python processes running with higher Admin privileges blocking normal termination, and ExtJS 3 Grid data-binding limits that prevent UI updates without direct frame-level commits. Recommended transitioning future desktop auto-fills to standard OS keyboard simulations (e.g. AutoHotkey or PyAutoGUI) for simplicity and reliability.
 - **[2026-07-02] CPOS PDF Downloader Bug & Raw PDF Fix**: Resolved monthly CPOS reports (E305, E306, E307, E308) downloading as bloated browser prints (~60KB). Configured Chrome to download raw PDF files natively, wait for file presence in local Downloads, and move/rename directly.
 - **[2026-07-02] PUS PDF Print Clean Layout Method**: Implemented dynamic DOM swapping before CDP print execution. Setting `document.body.innerHTML` to the `#print` container excludes sidebars and menus, generating clean statements.
 - **[2026-07-05] Fiori Headless & Intranet Startup Stable Optimization**: Optimized auto_team_clock.py with Chrome --headless=new and background-disabling arguments to prevent crashes caused by intranet firewall blocks and display context errors.
