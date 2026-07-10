@@ -407,7 +407,8 @@
         "command($env:PYTHONIOENCODING=\"utf-8\";)",
         "command(#)",
         "command($remote)",
-        "command($cred)"
+        "command($cred)",
+        "command($remote)"
       ]
     }
   }
