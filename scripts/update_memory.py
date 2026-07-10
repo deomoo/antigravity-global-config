@@ -5,6 +5,14 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
+# Fix encoding issues on Windows
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='ignore')
+        sys.stderr.reconfigure(encoding='utf-8', errors='ignore')
+    except AttributeError:
+        pass
+
 # Config
 GLOBAL_CONFIG_DIR = r"C:\Users\deomo\.gemini\config"
 SYNC_SCRIPT = os.path.join(GLOBAL_CONFIG_DIR, "scripts", "sync_memory.py")
