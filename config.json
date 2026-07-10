@@ -271,6 +271,8 @@
         "read_url(raw.githubusercontent.com)",
         "read_url(api.github.com)",
         "command(if)",
+        "command(C:\\Users\\deomo\\bin\\onboard.exe)",
+        "command(C:\\Users\\deomo\\bin\\onboard.exe)",
         "command(C:\\Users\\deomo\\bin\\onboard.exe)"
       ]
     }
