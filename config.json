@@ -410,7 +410,9 @@
         "command($cred)",
         "command($remote)",
         "command($posApp)",
-        "command(Write-Host)"
+        "command(Write-Host)",
+        "command($oldIP)",
+        "command($oldIP)"
       ]
     }
   }
