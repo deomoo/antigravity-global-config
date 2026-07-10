@@ -408,7 +408,9 @@
         "command(#)",
         "command($remote)",
         "command($cred)",
-        "command($remote)"
+        "command($remote)",
+        "command($posApp)",
+        "command(Write-Host)"
       ]
     }
   }
