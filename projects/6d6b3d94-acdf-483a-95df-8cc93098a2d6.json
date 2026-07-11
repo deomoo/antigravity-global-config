@@ -155,7 +155,7 @@
   "settings":  {
     "fileAccessPolicy":  "AGENT_SETTING_POLICY_ALLOW",
     "internetPolicy":  "AGENT_SETTING_POLICY_ASK",
-    "autoExecutionPolicy":  "CASCADE_COMMANDS_AUTO_EXECUTION_OFF",
+    "autoExecutionPolicy":  "CASCADE_COMMANDS_AUTO_EXECUTION_EAGER",
     "artifactReviewMode":  "ARTIFACT_REVIEW_MODE_ALWAYS"
   }
 }
