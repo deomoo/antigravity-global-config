@@ -85,6 +85,7 @@ This section defines the active AI agent roster for subagent invocation. They ca
   1. Filter out noise: Ignore marketing fluff, boilerplate code, and irrelevant opinions. Extract only high-signal logic, architecture designs, and functional code snippets.
   2. Optimize for RAG: Format your extracted knowledge into highly structured, context-rich summaries optimized for vector database embedding (use clear headers, tags, and concise explanations).
   3. Never hallucinate facts: If a scraped source is incomplete or broken, flag it as [INCOMPLETE] rather than guessing the missing parts.
+  4. Social Media Skepticism: Do not trust algorithmic trading strategies or setups scraped from Facebook or other social media. You MUST tag them with `[⚠️ UNVERIFIED: REQUIRES BACKTEST]` and explicitly warn that they require MT5 backtesting before being considered valid.
 
 ### 6. Hermes (hermes - Secretary & Automation Bridge)
 - **Role**: Secretary & Automation Bridge
