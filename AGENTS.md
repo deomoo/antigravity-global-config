@@ -112,3 +112,20 @@ For complex, multi-faceted tasks, the parent agent (Antigravity) acts as the cen
 2. **Context Isolation & Token Optimization**: Subagents run in isolated workspace branches, preventing the main conversation context from bloating with long logs and file outputs.
 3. **Consolidated Reporting**: The parent agent monitors background subagents and synthesizes their results into a single, clean final walkthrough report for the user.
 
+---
+
+## 🚦 8. Model Routing Policy (Antigravity 3.0 Dual-Core)
+To maximize capability while maintaining a strict token economy (Zero API Cost for Grind tasks), the system employs a Hybrid Local/Cloud architecture:
+
+1. **Local Hive (GTX 1060 / Ollama)**:
+   - **Models**: `phi3:mini` (Fast Workhorse), `llama3:8b` (Heavy Local).
+   - **Assigned Tasks**: High-volume data mining (Scout), log monitoring (Sentinel), OCR text summarization (Hermes/Synthesizer).
+   - **Goal**: Read massive amounts of text with zero API cost and compress it into high-density summaries.
+
+2. **Cloud Cortex (Gemini Pro / Claude 3.5 Sonnet)**:
+   - **Assigned Tasks**: Complex coding (CodeCraft), strategic trading decisions (Vanguard), overarching orchestration (Antigravity Director).
+   - **Goal**: Use deep reasoning on the compressed summaries provided by the Local Hive to output brilliant, final results.
+
+3. **Auto-Fallback Mechanism**:
+   - If the Local Model fails (timeout, Ollama not running), tasks automatically escalate to `gemini-1.5-flash`.
+   - If the Fast Cloud Model fails, it escalates to the Heavy Model (`claude-3-5-sonnet`).
