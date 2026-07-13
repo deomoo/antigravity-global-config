@@ -287,7 +287,8 @@
         "command(Test-Path)",
         "command(\u0026)",
         "command(\u0026)",
-        "command(\u0026)"
+        "command(\u0026)",
+        "read_url(lineage.buildwithoracle.com)"
       ]
     }
   }
