@@ -60,6 +60,23 @@
           "signed_pickup": true
         }
       }
+    },
+    {
+      "id": "task_ping_test_20260715",
+      "title": "Ping Test to Home Server",
+      "creator_machine": "T42170X0W108",
+      "assigned_machine": "HOME_SERVER",
+      "created_at": "2026-07-15T09:06:34Z",
+      "updated_at": "2026-07-15T09:06:34Z",
+      "status": "PENDING",
+      "action": "ECHO_PING",
+      "payload": {
+        "message": "Hello from Office Machine! Please reply if you receive this."
+      },
+      "result": {
+        "summary": "",
+        "details": {}
+      }
     }
   ]
 }
