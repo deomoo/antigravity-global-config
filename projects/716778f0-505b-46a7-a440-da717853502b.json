@@ -1,22 +1,22 @@
 {
-  "id":  "716778f0-505b-46a7-a440-da717853502b",
-  "name":  "AI_Office_System",
-  "projectResources":  {
-    "resources":  [
+  "id": "716778f0-505b-46a7-a440-da717853502b",
+  "name": "AI_Office_System",
+  "projectResources": {
+    "resources": [
       {
-        "folderUri":  "file:///d%3A/AI_Office_System"
+        "folderUri": "file:///d%3A/AI_Office_System"
       },
       {
-        "folderUri":  "file:///g%3A/My%20Drive/AI_Office_HQ"
+        "folderUri": "file:///g%3A/My%20Drive/AI_Office_HQ"
       },
       {
-        "folderUri":  "file:///g%3A/My%20Drive/AI_Office_HQ/2_%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%AA%E0%B8%B3%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B8%87%E0%B8%B2%E0%B8%99/144/%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%80%E0%B8%94%E0%B8%AA%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B%2018%E0%B8%81%E0%B8%9E69"
+        "folderUri": "file:///g%3A/My%20Drive/AI_Office_HQ/2_%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%AA%E0%B8%B3%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B8%87%E0%B8%B2%E0%B8%99/144/%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%80%E0%B8%94%E0%B8%AA%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B%2018%E0%B8%81%E0%B8%9E69"
       }
     ]
   },
-  "permissionGrants":  {
-    "permissionGrants":  {
-      "allow":  [
+  "permissionGrants": {
+    "permissionGrants": {
+      "allow": [
         "command(D:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(d:\\AI_Office_System\\venv\\Scripts\\python.exe)",
         "command(Get-CimInstance)",
@@ -344,10 +344,11 @@
       ]
     }
   },
-  "settings":  {
-    "fileAccessPolicy":  "AGENT_SETTING_POLICY_ALLOW",
-    "internetPolicy":  "AGENT_SETTING_POLICY_ASK",
-    "autoExecutionPolicy":  "CASCADE_COMMANDS_AUTO_EXECUTION_OFF",
-    "artifactReviewMode":  "ARTIFACT_REVIEW_MODE_ALWAYS"
-  }
+  "settings": {
+    "fileAccessPolicy": "AGENT_SETTING_POLICY_ALLOW",
+    "internetPolicy": "AGENT_SETTING_POLICY_ASK",
+    "autoExecutionPolicy": "CASCADE_COMMANDS_AUTO_EXECUTION_OFF",
+    "artifactReviewMode": "ARTIFACT_REVIEW_MODE_ALWAYS"
+  },
+  "updatedAt": "2026-06-29T13:49:37.028323400Z"
 }

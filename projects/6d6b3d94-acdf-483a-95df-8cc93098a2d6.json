@@ -1,31 +1,31 @@
 {
-  "id":  "6d6b3d94-acdf-483a-95df-8cc93098a2d6",
-  "name":  "AI_Saiyan_System",
-  "projectResources":  {
-    "resources":  [
+  "id": "6d6b3d94-acdf-483a-95df-8cc93098a2d6",
+  "name": "AI_Saiyan_System",
+  "projectResources": {
+    "resources": [
       {
-        "folderUri":  "file:///d%3A/AI_Saiyan_System"
+        "folderUri": "file:///d%3A/AI_Saiyan_System"
       },
       {
-        "gitFolder":  {
-          "folderUri":  "file:///c%3A/Users/deomo/OneDrive/%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7%E0%B8%9E%E0%B8%AD%E0%B9%83%E0%B8%88",
-          "defaultBranch":  "master"
+        "gitFolder": {
+          "folderUri": "file:///c%3A/Users/deomo/OneDrive/%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7%E0%B8%9E%E0%B8%AD%E0%B9%83%E0%B8%88",
+          "defaultBranch": "master"
         }
       },
       {
-        "folderUri":  "file:///c%3A/Users/deomo/oracle_mas"
+        "folderUri": "file:///c%3A/Users/deomo/oracle_mas"
       },
       {
-        "folderUri":  "file:///d%3A/CA%20-%20Copy"
+        "folderUri": "file:///d%3A/CA%20-%20Copy"
       },
       {
-        "folderUri":  "file:///d%3A/AI_Saiyan_System/agent_office_ui"
+        "folderUri": "file:///d%3A/AI_Saiyan_System/agent_office_ui"
       }
     ]
   },
-  "permissionGrants":  {
-    "permissionGrants":  {
-      "allow":  [
+  "permissionGrants": {
+    "permissionGrants": {
+      "allow": [
         "read_url(glo.or.th)",
         "command($env:PYTHONIOENCODING='utf-8';)",
         "command(.\\venv\\Scripts\\python.exe)",
@@ -152,10 +152,11 @@
       ]
     }
   },
-  "settings":  {
-    "fileAccessPolicy":  "AGENT_SETTING_POLICY_ALLOW",
-    "internetPolicy":  "AGENT_SETTING_POLICY_ASK",
-    "autoExecutionPolicy":  "CASCADE_COMMANDS_AUTO_EXECUTION_EAGER",
-    "artifactReviewMode":  "ARTIFACT_REVIEW_MODE_ALWAYS"
-  }
+  "settings": {
+    "fileAccessPolicy": "AGENT_SETTING_POLICY_ALLOW",
+    "internetPolicy": "AGENT_SETTING_POLICY_ASK",
+    "autoExecutionPolicy": "CASCADE_COMMANDS_AUTO_EXECUTION_EAGER",
+    "artifactReviewMode": "ARTIFACT_REVIEW_MODE_ALWAYS"
+  },
+  "updatedAt": "2026-07-21T14:28:06.656519400Z"
 }
