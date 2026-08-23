@@ -28,26 +28,26 @@ def find_project_memory():
     return None
 
 def append_to_learning_log(filepath, date_str, title, content=""):
-    """เพิ่มข้อมูลในหัวข้อ ## 🔄 1. Continuous Learning Log & Active Retention"""
+    """เพิ่มข้อมูลในหัวข้อ Continuous Learning Log & Active Retention"""
     content_str = filepath.read_text(encoding="utf-8")
     
     # สร้างข้อความที่จะแทรก
     new_entry = f"- **[{date_str}] {title}**: {content}\n"
     
-    # มองหาหัวข้อ Continuous Learning Log
-    pattern = r"(## 🔄 1\. Continuous Learning Log & Active Retention)"
+    # มองหาหัวข้อ Continuous Learning Log แบบยืดหยุ่น (รองรับทั้ง ## 🔄 1. และ ## 🔄 3.)
+    pattern = r"(## 🔄 \d+\. Continuous Learning Log[^\n]*)"
     match = re.search(pattern, content_str)
     
     if match:
         header_pos = match.end()
         # แทรกหลังหัวข้อ
-        updated_content = content_str[:header_pos] + "\n" + new_entry + content_str[header_pos:]
+        updated_content = content_str[:header_pos] + "\n\n" + new_entry + content_str[header_pos:].lstrip("\n")
         
         # ทำการบีบอัดข้อมูล (Compaction) หากแถวการบันทึกยาวเกิน 8 แถว
         lines = updated_content.splitlines()
         learning_section_idx = -1
         for idx, line in enumerate(lines):
-            if "## 🔄 1. Continuous Learning Log" in line:
+            if "## 🔄" in line and "Continuous Learning Log" in line:
                 learning_section_idx = idx
                 break
                 
@@ -56,7 +56,7 @@ def append_to_learning_log(filepath, date_str, title, content=""):
             log_entries = []
             scan_idx = learning_section_idx + 1
             while scan_idx < len(lines):
-                if lines[scan_idx].startswith("##"):
+                if lines[scan_idx].startswith("##") and not lines[scan_idx].startswith("###"):
                     break
                 if lines[scan_idx].strip().startswith("-"):
                     log_entries.append(scan_idx)

@@ -26,6 +26,8 @@ if sys.platform.startswith('win'):
     except AttributeError:
         pass
 
+from model_router import ModelRouter
+
 class AntigravityOrchestrator:
     def __init__(self, workspace_path=None):
         self.workspace = Path(workspace_path or os.getcwd()).resolve()
@@ -33,9 +35,11 @@ class AntigravityOrchestrator:
         self.global_memory_path = self.global_config_dir / "AGENTS.md"
         self.local_memory_path = self.workspace / ".agents" / "AGENTS.md"
         
+        self.router = ModelRouter()
+        
         # Setup models
         self.primary_model = "gemini-2.5-flash"
-        self.thinking_model_fallback = "gemini-2.5-pro"  # Fallback to Pro if Claude API key is missing
+        self.thinking_model_fallback = "gemini-2.5-pro"
         self.claude_model = "claude-3-5-sonnet-20240620"
         
         self.max_attempts = 3
@@ -99,7 +103,16 @@ class AntigravityOrchestrator:
         return "[RELEVANT PAST MEMORY & LESSONS]:\n" + "\n\n".join(compiled_context)
 
     def call_llm(self, model_name, prompt):
-        """Invokes the selected LLM based on model type."""
+        """Invokes the selected LLM based on model type or routes to local Ollama if applicable."""
+        # Check if local model requested or if ollama prefix
+        if "phi3" in model_name or "llama3" in model_name or model_name.startswith("ollama:"):
+            target_local = model_name.replace("ollama:", "")
+            try:
+                return self.router.call_ollama(target_local, prompt)
+            except Exception as e:
+                print(f"[!] Local model {model_name} failed: {e}. Falling back to Cloud Gemini Flash.")
+                model_name = self.primary_model
+
         # Use Claude if it's the target and we have credentials
         if "claude" in model_name and self.anthropic_key and HAS_ANTHROPIC:
             try:
@@ -116,7 +129,6 @@ class AntigravityOrchestrator:
 
         # Gemini execution
         if HAS_GEMINI and self.gemini_key:
-            # Map model names to standard Gemini API names
             gemini_model_map = {
                 "gemini-2.5-flash": "models/gemini-2.5-flash",
                 "gemini-2.5-pro": "models/gemini-2.5-pro"
@@ -129,10 +141,20 @@ class AntigravityOrchestrator:
             except Exception as e:
                 err_str = str(e)
                 if "403" in err_str or "denied" in err_str.lower():
+                    # Attempt local fallback if Ollama is available
+                    alive, _, models = self.router.check_ollama_health()
+                    if alive and models:
+                        print(f"[*] Cloud API Quota restricted. Failing over to local {models[0]}...")
+                        return self.router.call_ollama(models[0], prompt)
                     raise RuntimeError("Your environment variable GEMINI_API_KEY is restricted or has billing/quota limits. Please configure a valid key to run the local orchestrator script.")
                 raise RuntimeError(f"Gemini API invocation failed: {e}")
         else:
-            raise RuntimeError("No LLM client or API keys configured.")
+            # Fallback to local Ollama if available
+            alive, _, models = self.router.check_ollama_health()
+            if alive and models:
+                print(f"[*] No Cloud API Key found. Routing task to local Ollama ({models[0]})...")
+                return self.router.call_ollama(models[0], prompt)
+            raise RuntimeError("No LLM client or API keys configured, and local Ollama is offline.")
 
     def run_code_and_get_stderr(self, code_content):
         """Saves code block to a temp file, runs it, and captures output/stderr."""
