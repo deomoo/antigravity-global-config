@@ -192,7 +192,11 @@ class ModelRouter:
                 result = response.json()
                 choices = result.get("choices", [])
                 if choices and "message" in choices[0]:
-                    return choices[0]["message"].get("content", "")
+                    content = choices[0]["message"].get("content")
+                    if content:
+                        return content
+                if "error" in result:
+                    raise RuntimeError(f"OpenRouter API error: {result['error']}")
                 return str(result)
             except Exception as e:
                 last_err = e
