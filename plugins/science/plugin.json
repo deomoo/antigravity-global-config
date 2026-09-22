@@ -1,10 +1,6 @@
 {
   "name": "science",
-  "version": "1.1.0",
+  "version": "1.2.2",
   "description": "Curated collection of agent skills for science tasks.",
-  "author": {
-    "name": "Google"
-  },
-  "repository": "https://github.com/google-deepmind/science-skills",
-  "license": "Apache 2.0"
+  "logo": "https://www.gstatic.com/images/branding/productlogos/googleg_gradient/v1/web-512dp/logo_googleg_gradient_color_1x_web_512dp.png"
 }

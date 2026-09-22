@@ -79,6 +79,22 @@ def pull_files(force=False):
 
 def push_files(commit_msg):
     print(f"Pushing memory changes to GitHub: {commit_msg}")
+    
+    # Priority 1: Try native Git CLI (uses Windows Credential Manager)
+    try:
+        import subprocess
+        subprocess.run(["git", "-C", CONFIG_DIR, "add", "."], check=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["git", "-C", CONFIG_DIR, "commit", "-m", commit_msg], check=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        push_res = subprocess.run(["git", "-C", CONFIG_DIR, "push"], check=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if push_res.returncode == 0:
+            print("Pushed memory changes via Git successfully.")
+            return
+        else:
+            print(f"Git CLI push returned code {push_res.returncode}. Falling back to REST API...")
+    except Exception as git_err:
+        print(f"Git CLI failed ({git_err}). Falling back to REST API...")
+
+    # Priority 2: Fallback to GitHub REST API
     files_to_push = []
     for root, dirs, files in os.walk(CONFIG_DIR):
         if ".git" in root:
@@ -140,3 +156,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

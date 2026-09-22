@@ -1,6 +1,6 @@
 ---
 name: android-cli
-description: Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.
+description: Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, run Android apps on devices, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills.
 ---
 # Android CLI Specialist
 
@@ -8,10 +8,11 @@ This skill provides instructions for using the `android` CLI tool. The tool incl
 
 ## Installation
 
-If the android tool is not in the path install it. To install run the following command:
+If the android tool is not in the path, install it. To install run the following command:
 Linux: curl -fsSL https://dl.google.com/android/cli/latest/linux_x86_64/install.sh | bash
-Mac: curl -fsSL https://dl.google.com/android/cli/latest/darwin_arm64/install.sh | bash
-Windows: curl.exe -fsSL https://dl.google.com/android/cli/latest/windows_x86_64/install.cmd -o "%TEMP%\i.cmd" && "%TEMP%\i.cmd"
+Mac Arm: curl -fsSL https://dl.google.com/android/cli/latest/darwin_arm64/install.sh | bash
+Mac Intel: curl -fsSL https://dl.google.com/android/cli/latest/darwin_x86_64/install.sh | bash
+Windows: curl -fsSL https://dl.google.com/android/cli/latest/windows_x86_64/install.cmd -o "%TEMP%\i.cmd" && "%TEMP%\i.cmd"
 
 ## SDK management
 To manage the installation of Android SDKs and tools, use the `sdk` command. For example:
@@ -56,7 +57,7 @@ Capture an image of the current screen of a connected Android device and output 
 
 ## Managing skills
 
-Manage antigravity agent skills for Android using the `android skills` command.
+Manage agent skills for Android using the `android skills` command.
 
 ## Inspecting UI Layouts
 
@@ -68,29 +69,45 @@ Update the Android CLI using the `android update` command.
 
 # `android help` output
 
-Usage: android [-hV] [--sdk=PARAM] [COMMAND]
+Usage: android [-hvV] [--sdk=PARAM] [COMMAND]
   -h, --help        Show this help message and exit.
       --sdk=PARAM   Path to the Android SDK
+  -v, --verbose     Enable verbose output for troubleshooting
   -V, --version     Print version information and exit.
 Commands:
-  create    Create a new Android project
+  create    Create a new Android project from available templates. Allows
+              specifying project name, output directory, minSdk, and dry-run
+              execution.
   describe  Analyzes an Android project to generate descriptive metadata.
-  docs      Android documentation commands
-  emulator  Emulator commands
+  docs      Android documentation commands for searching and fetching developer
+              documentation from the official knowledge base.
+  emulator  Manage Android Virtual Devices (AVDs). Includes commands to start,
+              stop, list, and view details about emulators.
   help      Shows the help of all commands
-  info      Print environment information (SDK Location, etc.)
-  init      Initializes the environment (eg. skills) for Android CLI.
+  info      Print environment information including SDK location, connected
+              devices, and configuration variables. Use specific fields to
+              narrow the output.
+  init      Initializes the environment for the Android CLI. Sets up required
+              configurations, directories, and default skills.
+  install   Install an Android Application (one or more APKs) to a connected
+              device or emulator without activating any components using
+              incremental optimizations for faster deployment than adb.
   layout    Returns the layout tree of an application
-  run       Deploy an Android Application
+  run       Build, deploy, and launch an Android application on a connected
+              device or emulator.
   screen    Commands to view the device
-  sdk       Download and list SDK packages
-  skills    Manage skills
-  update    Update the Android CLI
+  sdk       Manage the Android SDK installation. Includes commands to install,
+              update, remove, and list available and installed SDK packages.
+  skills    Manage Android CLI skills. Includes commands to install, remove,
+              list, and search for skills by keyword.
+  studio    Android Studio commands
+  update    Update the Android CLI to the latest version.
 
 create
           Usage: android create [-h] [--verbose] [--list] [--minSdk=api]
                                 --name=applicationName [-o=dest-path] [template-name]
-          Create a new Android project
+          Create a new Android project from available templates. Allows specifying
+          project name, output directory, minSdk, and dry-run execution.
                 [template-name]      The template name
             -h, --help               Show this help message and exit.
                 --minSdk=api         The 'minSdk' supported by the application (default
@@ -115,15 +132,17 @@ describe
 
 docs
           Usage: android docs [-h] [COMMAND]
-          Android documentation commands
+          Android documentation commands for searching and fetching developer
+          documentation from the official knowledge base.
             -h, --help   Show this help message and exit.
           Commands:
-            search  Search Android documentation
-            fetch   Fetch Android documentation
+            search  Search Android documentation. Enclose keywords in quotes.
+            fetch   Fetch an Android documentation article from a URL (kb://...)
 
 emulator
           Usage: android emulator [-h] [COMMAND]
-          Emulator commands
+          Manage Android Virtual Devices (AVDs). Includes commands to start, stop, list,
+          and view details about emulators.
             -h, --help   Show this help message and exit.
           Commands:
             create  Creates a virtual device
@@ -140,12 +159,33 @@ help
 
 info
           Usage: android info <field>
-          Print environment information (SDK Location, etc.)
+          Print environment information including SDK location, connected devices, and
+          configuration variables. Use specific fields to narrow the output.
                 <field>   The specific field to print the value of. If omitted print all.
 
 init
           Usage: android init
-          Initializes the environment (eg. skills) for Android CLI.
+          Initializes the environment for the Android CLI. Sets up required
+          configurations, directories, and default skills.
+
+install
+          Usage: android install [-hv] [--use-delta-install] [--device=PARAM]
+                                 [--apks=PARAM[,PARAM...]]... [--install-options=PARAM[,
+                                 PARAM...]]...
+          Install an Android Application (one or more APKs) to a connected device or
+          emulator without activating any components using incremental optimizations for
+          faster deployment than adb.
+                --apks=PARAM[,PARAM...]
+                                      The paths to the APKs
+                --device=PARAM        The device serial number
+            -h, --help                Show this help message and exit.
+                --install-options=PARAM[,PARAM...]
+                                      Additional options/flags to pass to package manager
+                                        install (e.g. -g,-d)
+                --use-delta-install   Use fast delta install (speeds up incremental
+                                        updates by transferring only modified code and
+                                        resources; default: true)
+            -v, --verbose             Enable verbose logging
 
 layout
           Usage: android layout [-dhp] [--device=PARAM] [-o=PARAM]
@@ -160,16 +200,26 @@ layout
             -p, --pretty         Pretty-prints the returned JSON
 
 run
-          Usage: android run [-h] [--debug] [--activity=PARAM] [--device=PARAM]
-                             [--type=PARAM] [--apks=PARAM[,PARAM...]]...
-          Deploy an Android Application
-                --activity=PARAM   The activity name
+          Usage: android run [-hv] [--debug] [--use-delta-install] [--activity=PARAM]
+                             [--device=PARAM] [--type=PARAM] [--apks=PARAM[,PARAM...]]...
+                             [--install-options=PARAM[,PARAM...]]...
+          Build, deploy, and launch an Android application on a connected device or
+          emulator.
+                --activity=PARAM      The activity name
                 --apks=PARAM[,PARAM...]
-                                   The paths to the APKs
-                --debug            Run in debug mode
-                --device=PARAM     The device serial number
-            -h, --help             Show this help message and exit.
-                --type=PARAM       The component type (ACTIVITY, SERVICE, etc.)
+                                      The paths to the APKs
+                --debug               Run in debug mode
+                --device=PARAM        The device serial number
+            -h, --help                Show this help message and exit.
+                --install-options=PARAM[,PARAM...]
+                                      Additional options/flags to pass to package manager
+                                        install (e.g. -g,-d)
+                --type=PARAM          The component type (ACTIVITY, WATCH_FACE, TILE,
+                                        COMPLICATION, DECLARATIVE_WATCH_FACE, WEAR_WIDGET)
+                --use-delta-install   Use fast delta install (speeds up incremental
+                                        updates by transferring only modified code and
+                                        resources; default: false)
+            -v, --verbose             Enable verbose logging
 
 screen
           Usage: android screen [-h] [COMMAND]
@@ -181,24 +231,43 @@ screen
 
 sdk
           Usage: android sdk [COMMAND]
-          Download and list SDK packages
+          Manage the Android SDK installation. Includes commands to install, update,
+          remove, and list available and installed SDK packages.
           Commands:
             install  Install SDK packages
             update   Update one or all packages to the latest version
-            remove   Remove a package from the SDK
+            remove   Remove packages from the SDK
             list     List installed and available SDK packages
 
 skills
-          Usage: android skills [COMMAND]
-          Manage skills
+          Usage: android skills [-h] [COMMAND]
+          Manage Android CLI skills. Includes commands to install, remove, list, and
+          search for skills by keyword.
+            -h, --help   Show this help message and exit.
           Commands:
-            add     Install a skill
-            remove  Remove a skill
-            list    List available skills
-            find    Find skills by keyword
+            add     [id]      Install a specific skill by its ID to your environment
+            remove  [id]      Remove an installed skill by its ID
+            list              List installed and available skills
+            find    [keyword] Search for available skills in the repository matching a
+                      keyword
+
+studio
+          Usage: android studio [-h] [COMMAND]
+          Android Studio commands
+            -h, --help   Show this help message and exit.
+          Commands:
+            find-declaration        Find declaration of a symbol
+            find-usages             Find usages of a symbol
+            open-file               Open a file in Android Studio
+            check                   Check the status of running Studio instances
+            analyze-file            Analyze a file in Android Studio
+            render-compose-preview  Render a Compose preview in Android Studio
+            version-lookup          Looks up the latest available versions on the
+                                      internet of maven artifacts, Android versions, and
+                                      more.
 
 update
           Usage: android update [--url=PARAM]
-          Update the Android CLI
+          Update the Android CLI to the latest version.
                 --url=PARAM   The URL to download the update from
 
