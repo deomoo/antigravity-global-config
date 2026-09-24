@@ -21,7 +21,7 @@
   },
   "sidecars": {
     "mt5-exness": {
-      "enabled": true,
+      "enabled": false,
       "projectId": "6d6b3d94-acdf-483a-95df-8cc93098a2d6"
     }
   },
